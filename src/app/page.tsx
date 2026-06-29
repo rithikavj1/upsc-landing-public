@@ -55,14 +55,14 @@ export default function Home() {
         {/* Features Grid - Available at Launch */}
         <FeaturesGrid />
 
-        {/* Community Roadmap & Voting */}
+        {/* Interest Check Validation Poll (Comes below Available at Launch) */}
+        <InterestCheck onJoinClick={handleOpenWaitlist} />
+
+        {/* Community Roadmap & Voting (Comes below Interest Check) */}
         <VotingRoadmap />
 
         {/* UPSC Pain Survey */}
         <PainSurvey />
-
-        {/* Interest Check Validation Poll */}
-        <InterestCheck onJoinClick={handleOpenWaitlist} />
 
         {/* Founder Story */}
         <FounderStory />
