@@ -47,9 +47,9 @@ export default function DemoVideo() {
     },
     {
       timeRatio: 0.8,
-      title: "GitHub-style Heatmap Calendar",
-      text: "Consistency is key. The Heatmap rewards daily logs, keeping your momentum high over the 12-month marathon.",
-      highlightFeature: "Consistency Heatmap"
+      title: "Grand Launch Approaching",
+      text: "Based on your interest and waitlist, we are going to grand launch this within half a month.",
+      highlightFeature: "Launch Timeline"
     }
   ];
 
