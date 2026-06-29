@@ -107,9 +107,10 @@ export default function DemoVideo() {
                     key="poster"
                     initial={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-brand-purple/10"
+                    className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center bg-cover bg-center"
+                    style={{ backgroundImage: "linear-gradient(to top, rgba(9, 9, 11, 0.95), rgba(9, 9, 11, 0.75)), url('/media/video_thumbnail.png')" }}
                   >
-                    <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-tr from-brand-purple to-brand-indigo shadow-lg shadow-brand-purple/30 group-hover:scale-105 transition-transform duration-300">
+                    <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-tr from-brand-purple to-brand-indigo shadow-lg shadow-brand-purple/30 group-hover:scale-105 transition-transform duration-300 cursor-pointer">
                       <Play className="h-9 w-9 text-white fill-white translate-x-0.5" />
                     </div>
                     <h3 className="font-sans text-2xl font-bold text-white">UPSC Tracker Walkthrough</h3>

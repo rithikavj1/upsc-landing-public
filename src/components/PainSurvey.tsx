@@ -6,6 +6,7 @@ import { AlertCircle, CheckCircle2, ChevronRight } from "lucide-react";
 import { getPainSurvey, submitPainVote } from "@/lib/supabase";
 
 export default function PainSurvey() {
+  const [isAdmin, setIsAdmin] = useState<boolean>(false);
   const [surveyData, setSurveyData] = useState<Record<string, number>>({});
   const [selectedChallenge, setSelectedChallenge] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
@@ -38,6 +39,12 @@ export default function PainSurvey() {
     }
 
     if (typeof window !== "undefined") {
+      // Check admin status
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("admin") === "true") {
+        setIsAdmin(true);
+      }
+
       const stored = localStorage.getItem("user_pain_voted");
       if (stored) {
         setSelectedChallenge(stored);
@@ -101,7 +108,7 @@ export default function PainSurvey() {
                 }`}
               >
                 {/* Background progress bar for results view */}
-                {hasAnyVoted && (
+                {hasAnyVoted && isAdmin && (
                   <motion.div
                     initial={{ width: 0 }}
                     animate={{ width: `${percentage}%` }}
@@ -129,7 +136,7 @@ export default function PainSurvey() {
                   </div>
 
                   {/* Vote count and stats after selection */}
-                  {hasAnyVoted && (
+                  {hasAnyVoted && isAdmin && (
                     <div className="mt-4 flex items-center justify-between text-[10px] text-zinc-500 border-t border-white/5 pt-2.5">
                       <span>Total Votes: {voteCount.toLocaleString()}</span>
                       <span className="font-bold text-brand-purple">{percentage}%</span>

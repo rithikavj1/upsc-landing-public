@@ -87,6 +87,7 @@ export default function MediaContainer({ src, type, alt = "media preview", child
         <video
           src={src}
           controls
+          poster="/media/video_thumbnail.png"
           className="h-full w-full object-contain rounded-lg border border-white/5 shadow-lg bg-zinc-950"
           onError={() => setHasError(true)}
         />
