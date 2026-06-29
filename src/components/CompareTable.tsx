@@ -31,10 +31,10 @@ export default function CompareTable() {
       others: "Requires manual entry",
     },
     {
-      name: "AI Answer & Essay Evaluation",
-      description: "Evaluates handwritten GS answers and essay scans, providing instant UPSC-mapped feedback.",
-      ours: "Included (Bi-monthly drop)",
-      others: "Costs ₹500+ per test",
+      name: "AI Tutor",
+      description: "A 24/7 interactive mentor specialized in the UPSC syllabus to clarify doubts, explain complex topics, and guide study strategies.",
+      ours: "Bi-monthly drops (Add-on)",
+      others: "Requires external coaching",
     },
     {
       name: "Spaced-Repetition Revision",
