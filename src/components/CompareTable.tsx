@@ -13,7 +13,7 @@ interface CompareFeature {
 export default function CompareTable() {
   const comparisonData: CompareFeature[] = [
     {
-      name: "Syllabus-Linked Daily, Weekly & Monthly Tracker",
+      name: "Daily, Weekly & Monthly Tracker",
       description: "Auto-links study hours directly to GS Papers, Mains topics, and your optional subject across daily logs, weekly trackers, and monthly overviews.",
       ours: true,
       others: false,
