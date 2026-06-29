@@ -12,7 +12,7 @@ import PainSurvey from "@/components/PainSurvey";
 import InterestCheck from "@/components/InterestCheck";
 import FounderStory from "@/components/FounderStory";
 import WallOfAspirants from "@/components/WallOfAspirants";
-import ReferralWidget from "@/components/ReferralWidget";
+import CompareTable from "@/components/CompareTable";
 import AdminDashboard from "@/components/AdminDashboard";
 import Footer from "@/components/Footer";
 import WaitlistModal from "@/components/WaitlistModal";
@@ -70,8 +70,8 @@ export default function Home() {
         {/* Wall of Aspirants */}
         <WallOfAspirants />
 
-        {/* Referral Program */}
-        <ReferralWidget />
+        {/* Market Comparison Table */}
+        <CompareTable />
 
         {/* Founder Admin Analytics Console */}
         <AdminDashboard />
