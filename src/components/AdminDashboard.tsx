@@ -10,10 +10,6 @@ import {
   Lock,
   ChevronDown,
   ChevronUp,
-  Cpu,
-  Mail,
-  Calendar,
-  Compass
 } from "lucide-react";
 import {
   getWaitlistEntries,
@@ -25,12 +21,23 @@ import {
 } from "@/lib/supabase";
 
 export default function AdminDashboard() {
+  const [isAdmin, setIsAdmin] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [activeTab, setActiveTab] = useState<"waitlist" | "feedbacks" | "analytics">("waitlist");
   const [waitlist, setWaitlist] = useState<WaitlistEntry[]>([]);
   const [feedbacks, setFeedbacks] = useState<Array<{choice: string, text: string, date: string}>>([]);
   const [featureVotes, setFeatureVotes] = useState<Record<string, number>>({});
   const [painSurvey, setPainSurvey] = useState<Record<string, number>>({});
+
+  // Verify access criteria (?admin=true) on client mount
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("admin") === "true") {
+        setIsAdmin(true);
+      }
+    }
+  }, []);
 
   const loadData = async () => {
     try {
@@ -49,16 +56,19 @@ export default function AdminDashboard() {
   };
 
   useEffect(() => {
-    if (isOpen) {
+    if (isOpen && isAdmin) {
       loadData();
     }
-  }, [isOpen]);
+  }, [isOpen, isAdmin]);
 
   const handleReset = () => {
     if (confirm("Are you sure you want to reset all local storage waitlist entries, votes, and feedbacks back to seed data?")) {
       clearMockData();
     }
   };
+
+  // If not accessing as the admin, do not render this console at all
+  if (!isAdmin) return null;
 
   const totalWaitlisted = waitlist.length;
 
