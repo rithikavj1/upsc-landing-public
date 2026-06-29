@@ -15,11 +15,11 @@ interface WaitlistModalProps {
 export default function WaitlistModal({ isOpen, onClose, onSuccess }: WaitlistModalProps) {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
-  const [targetYear, setTargetYear] = useState<string>("2027");
+  const [targetYear, setTargetYear] = useState<string>("All Years");
   const [optionalSubject, setOptionalSubject] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [success, setSuccess] = useState<boolean>(false);
-  const [waitlistCount, setWaitlistCount] = useState<number>(1240);
+  const [waitlistCount, setWaitlistCount] = useState<number>(250);
 
   // Load count
   useEffect(() => {
@@ -172,9 +172,10 @@ export default function WaitlistModal({ isOpen, onClose, onSuccess }: WaitlistMo
                         onChange={(e) => setTargetYear(e.target.value)}
                         className="w-full rounded-xl border border-white/10 bg-zinc-950 px-3 py-2 text-xs text-white focus:border-brand-purple focus:outline-none focus:ring-1 focus:ring-brand-purple"
                       >
-                        <option value="2027">2027 Aspirant</option>
-                        <option value="2028">2028 Aspirant</option>
-                        <option value="2026">2026 Veteran</option>
+                        <option value="All Years">UPSC Aspirant (All Years)</option>
+                        <option value="2027">2027 Attempt</option>
+                        <option value="2028">2028 Attempt</option>
+                        <option value="2026">2026 Attempt</option>
                         <option value="Other">Other</option>
                       </select>
                     </div>

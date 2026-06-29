@@ -389,11 +389,11 @@ export async function getWaitlistCount(): Promise<number> {
   if (isSupabaseConfigured && supabase) {
     const { count, error } = await supabase.from('waitlist').select('*', { count: 'exact', head: true });
     if (!error && count !== null) {
-      return 1240 + count;
+      return 250 + count;
     }
   }
   const list = getLocalStorageData<WaitlistEntry[]>('upsc_waitlist', INITIAL_WAITLIST);
-  return 1240 + list.length;
+  return 250 + list.length;
 }
 
 export async function getWaitlistEntries(): Promise<WaitlistEntry[]> {
@@ -438,7 +438,7 @@ export async function joinWaitlist(name: string, email: string, targetYear: stri
     list.unshift(newEntry);
     setLocalStorageData('upsc_waitlist', list);
   }
-  return 1240 + list.length;
+  return 250 + list.length;
 }
 
 // Helper to clear mock details for local testing resets

@@ -11,7 +11,7 @@ interface HeroProps {
 }
 
 export default function Hero({ onWatchDemoClick, onJoinClick }: HeroProps) {
-  const [count, setCount] = useState<number>(1240);
+  const [count, setCount] = useState<number>(250);
 
   useEffect(() => {
     async function loadCount() {
@@ -106,11 +106,11 @@ export default function Hero({ onWatchDemoClick, onJoinClick }: HeroProps) {
                 Launching For
               </span>
               <span className="mt-1 font-sans text-xl font-bold text-brand-purple block">
-                UPSC 2027 & 2028
+                UPSC (All Years)
               </span>
             </div>
             <p className="text-[9px] text-zinc-500 mt-2 leading-relaxed">
-              Fully aligned with UPSC Mains, Prelims, and Optional syllabus. Replaces calendars, notebooks, and trackers in one workspace.
+              Fully aligned with UPSC preparation for civil services aspirants across all attempts and years.
             </p>
           </div>
 

@@ -13,6 +13,7 @@ interface RoadmapItem {
 }
 
 export default function VotingRoadmap() {
+  const [isAdmin, setIsAdmin] = useState<boolean>(false);
   const [votes, setVotes] = useState<Record<string, number>>({});
   const [votedFeatures, setVotedFeatures] = useState<Record<string, boolean>>({});
   const [loading, setLoading] = useState<boolean>(true);
@@ -94,8 +95,14 @@ export default function VotingRoadmap() {
       }
     }
 
-    // Load from local storage what the user voted for
     if (typeof window !== "undefined") {
+      // Check admin status
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("admin") === "true") {
+        setIsAdmin(true);
+      }
+
+      // Load from local storage what the user voted for
       const storedVotes = localStorage.getItem("user_roadmap_voted") || "{}";
       try {
         setVotedFeatures(JSON.parse(storedVotes));
@@ -196,11 +203,11 @@ export default function VotingRoadmap() {
                     <div className="text-right">
                       {loading ? (
                         <div className="h-4 w-12 bg-zinc-800 rounded animate-pulse" />
-                      ) : (
+                      ) : isAdmin ? (
                         <span className="font-sans text-xs font-bold text-white">
                           {voteCount.toLocaleString()} <span className="text-[10px] text-zinc-500 font-normal">votes ({percentage}%)</span>
                         </span>
-                      )}
+                      ) : null}
                     </div>
                   </div>
 
