@@ -13,6 +13,7 @@ import InterestCheck from "@/components/InterestCheck";
 import FounderStory from "@/components/FounderStory";
 import WallOfAspirants from "@/components/WallOfAspirants";
 import CompareTable from "@/components/CompareTable";
+import AIInterviewer from "@/components/AIInterviewer";
 import AdminDashboard from "@/components/AdminDashboard";
 import Footer from "@/components/Footer";
 import WaitlistModal from "@/components/WaitlistModal";
@@ -72,6 +73,9 @@ export default function Home() {
 
         {/* Market Comparison Table */}
         <CompareTable />
+
+        {/* AI Personalized Interviewer Showcase */}
+        <AIInterviewer />
 
         {/* Founder Admin Analytics Console */}
         <AdminDashboard />
